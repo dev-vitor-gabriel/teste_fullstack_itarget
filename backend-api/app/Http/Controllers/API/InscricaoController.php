@@ -10,7 +10,7 @@ class InscricaoController extends Controller
 {
     public function create(Request $request) {
         $request->validate([
-            'id_evento_tbi' => 'required|int|exists:tb_evento,id_evento_tbe',
+            'id_evento_tbi' => 'required|int',
             'nome_inscricao_tbi' => 'required|string|max:255',
             'cpf_inscricao_tbi' => 'required|string|max:14',
             'email_inscricao_tbi' => 'required|string|max:255'

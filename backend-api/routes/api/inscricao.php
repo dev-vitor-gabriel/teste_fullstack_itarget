@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\API\InscricaoController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\CorsMiddleware; // Adicione esta linha
 
 /*
 |--------------------------------------------------------------------------
@@ -14,10 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::controller(InscricaoController::class)->group(function () {
-    Route::post('', 'create');
-    Route::get('{id_inscricao}', 'get');
-    Route::get('', 'getAll'); 
-    Route::get('search/{nome}', 'searchByName'); // Nova rota para busca por nome
+Route::middleware([CorsMiddleware::class])->group(function () {
+    Route::controller(InscricaoController::class)->group(function () {
+        Route::post('', 'create');
+        Route::get('{id_inscricao}', 'get');
+        Route::get('', 'getAll'); 
+        Route::get('search/{nome}', 'searchByName'); // Nova rota para busca por nome
+    });
 });
-
