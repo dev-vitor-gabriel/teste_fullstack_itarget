@@ -16,8 +16,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::controller(InscricaoController::class)->group(function () {
     Route::post('', 'create');
-    // Route::get('{id_funcionario}', 'get');
-    // Route::get('', 'get');
-    // Route::put('{id_funcionario}', 'update');
-    // Route::delete('{id_funcionario}', 'delete');
+    Route::get('{id_inscricao}', 'get');
+    Route::get('', 'getAll'); 
+    Route::get('search/{nome}', 'searchByName'); // Nova rota para busca por nome
 });
+
