@@ -141,9 +141,20 @@ const Register: React.FC = () => {
     router.push('/inscritos'); // Redireciona para a página de inscritos
   };
 
+  const handleBackToHome = () => {
+    router.push('/'); // Redireciona para a página inicial
+  };
+
   return (
     <div className="container">
       <ToastContainer />
+      <div className="back-to-home" onClick={handleBackToHome}>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 19L3 12L10 5" stroke="#000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          <path d="M3 12H21" stroke="#000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+        <span>Voltar para Home</span>
+      </div>
       <h1>Inscrição para o Evento</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="form-group">
@@ -185,13 +196,12 @@ const Register: React.FC = () => {
         <button type="submit" className="submit-button" disabled={submitting}>
           {submitting ? <div className="spinner"></div> : 'Inscrever'}
         </button>
+        <button onClick={handleViewRegistrations} className="view-registrations-button">
+          Ver Inscrições
+        </button>
       </form>
-      <button onClick={handleViewRegistrations} className="view-registrations-button">
-        Ver Inscrições
-      </button>
     </div>
   );
 };
 
 export default Register;
-
