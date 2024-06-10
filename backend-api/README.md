@@ -1,4 +1,4 @@
-# Configuração Teste Prático Desenvolvedor Back-end
+# Configuração Teste Prático Desenvolvedor FullStack
 
 
 ## Configurações iniciais
